@@ -1,6 +1,6 @@
 const express = require('express')
 require('dotenv').config()
-const debug = require('debug')('backendTechincalTest')
+const debug = require('debug')('backendTechnicalTest')
 const chalk = require('chalk')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -14,9 +14,9 @@ server.use(cors())
 server.use(morgan('dev'))
 server.use(express.json())
 
-const userRouter = require('./src/routes/userRoutes')
+const droidRouter = require('./src/router/droidRoutes')
 
-server.use('/radar', userRouter)
+server.use('/', droidRouter)
 
 server.listen(
   port,
