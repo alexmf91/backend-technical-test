@@ -1,24 +1,21 @@
-const express = require('express')
-require('dotenv').config()
-const debug = require('debug')('backendTechnicalTest')
-const chalk = require('chalk')
-const morgan = require('morgan')
-const cors = require('cors')
+import express from 'express';
 
-require('./src/config/mongooseConfig')
+require('dotenv').config();
+const debug = require('debug')('backendTechnicalTest');
+const chalk = require('chalk');
+const morgan = require('morgan');
 
-const server = express()
-const port = process.env.PORT || 5000
+const server = express();
+const port = process.env.PORT || 5000;
 
-server.use(cors())
-server.use(morgan('dev'))
-server.use(express.json())
+server.use(morgan('dev'));
+server.use(express.json());
 
-const droidRouter = require('./src/router/droidRoutes')
+const droidRouter = require('./src/router/droidRoutes.ts');
 
-server.use('/', droidRouter)
+server.use('/', droidRouter);
 
 server.listen(
   port,
-  () => debug(`Server is running on ${chalk.bgBlue(`http://localhost:${port}`)}`)
-)
+  () => debug(`Server is running on ${chalk.red(`http://localhost:${port}`)}`)
+);
