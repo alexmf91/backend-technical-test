@@ -1,0 +1,6 @@
+# eslint ignores hidden files by default
+!.*.json
+**/node_modules
+**/tsconfig.json
+"backend/tsconfig.json",
+"backend/nodemon.json"
